@@ -73,7 +73,7 @@ npm run seed
 ```
 This creates:
 - **Admin:** `admin@company.com` / `Admin@123`
-- **Employee:** `rahul@company.com` / `Pass@123` (+ 3 more sample employees)
+- **Employee:** `yasasri@company.com` / `Pass@123` (+ 3 more sample employees)
 - 5 sample leave requests in different statuses
 
 ### 5. Run the server
