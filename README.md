@@ -1,6 +1,6 @@
 # Leave Management System
 
-A complete full-stack **Leave Management System** built with **Node.js, Express.js, MongoDB & Mongoose** on the backend and plain **HTML/CSS/JavaScript** on the frontend. Built as a college mini-project — suitable for demo and viva presentation.
+A complete full-stack **Leave Management System** built with **Node.js, Express.js, MongoDB & React.js** on the backend and plain **HTML/CSS/JavaScript** on the frontend.
 
 ## ✨ Features
 
