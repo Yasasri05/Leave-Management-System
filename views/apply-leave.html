@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Apply for Leave · Leave Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> LeaveDesk</div>
+    <nav>
+      <div class="nav-section-label">Menu</div>
+      <a href="/employee-dashboard" class="nav-link"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/apply-leave" class="nav-link active"><span class="icon">📝</span> Apply for Leave</a>
+      <a href="/leave-history" class="nav-link"><span class="icon">📋</span> Leave History</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar user-avatar">U</div>
+        <div class="meta">
+          <div class="name user-name">—</div>
+          <div class="role user-role">—</div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block btn-sm" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-toggle">☰</button>
+        <div>
+          <h1 class="page-title">Apply for Leave</h1>
+          <div class="page-sub">Fill in the details below to submit a new leave request</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <div class="panel" style="max-width: 720px;">
+      <div class="panel-body">
+        <form id="applyLeaveForm" novalidate>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="employeeIdDisplay">Employee ID</label>
+              <input type="text" id="employeeIdDisplay" disabled />
+            </div>
+            <div class="form-group">
+              <label for="employeeNameDisplay">Employee Name</label>
+              <input type="text" id="employeeNameDisplay" disabled />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="leaveType">Leave Type</label>
+            <select id="leaveType" required>
+              <option value="Sick">Sick Leave</option>
+              <option value="Casual">Casual Leave</option>
+              <option value="Earned">Earned Leave</option>
+              <option value="Maternity">Maternity Leave</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="startDate">Start Date</label>
+              <input type="date" id="startDate" required />
+            </div>
+            <div class="form-group">
+              <label for="endDate">End Date</label>
+              <input type="date" id="endDate" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="reason">Reason</label>
+            <textarea id="reason" required placeholder="Describe your reason for leave..."></textarea>
+            <div class="ai-suggestion" id="aiSuggestionBox">
+              <span>🤖</span>
+              <span id="aiSuggestionText"></span>
+              <button type="button" id="applySuggestionBtn">Apply</button>
+            </div>
+          </div>
+
+          <div class="auto-approve-note" id="autoApproveNote"></div>
+
+          <div style="margin-top:22px;">
+            <button type="submit" class="btn btn-primary">Submit Leave Request</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/employee.js"></script>
+</body>
+</html>

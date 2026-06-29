@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Dashboard · Leave Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> LeaveDesk</div>
+    <nav>
+      <div class="nav-section-label">Menu</div>
+      <a href="/employee-dashboard" class="nav-link active"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/apply-leave" class="nav-link"><span class="icon">📝</span> Apply for Leave</a>
+      <a href="/leave-history" class="nav-link"><span class="icon">📋</span> Leave History</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar user-avatar">U</div>
+        <div class="meta">
+          <div class="name user-name">—</div>
+          <div class="role user-role">—</div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block btn-sm" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-toggle">☰</button>
+        <div>
+          <h1 class="page-title">My Dashboard</h1>
+          <div class="page-sub">Overview of your leave statistics &amp; balance</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+        <a href="/apply-leave" class="btn btn-primary">+ Apply for Leave</a>
+      </div>
+    </div>
+
+    <div class="stats-grid" id="dashboardStats">
+      <div class="stat-card c-total"><div class="stat-bar"></div><div class="stat-label">Total Requests</div><div class="stat-value" id="statTotal">—</div></div>
+      <div class="stat-card c-pending"><div class="stat-bar"></div><div class="stat-label">Pending</div><div class="stat-value" id="statPending">—</div></div>
+      <div class="stat-card c-approved"><div class="stat-bar"></div><div class="stat-label">Approved</div><div class="stat-value" id="statApproved">—</div></div>
+      <div class="stat-card c-rejected"><div class="stat-bar"></div><div class="stat-label">Rejected</div><div class="stat-value" id="statRejected">—</div></div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header"><h3>Leave Balance</h3></div>
+      <div class="panel-body">
+        <div class="balance-grid" id="balanceGrid">
+          <div class="loading-wrap"><div class="spinner spinner-sm"></div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="panel-header">
+        <h3>Recent Leave Requests</h3>
+        <a href="/leave-history" class="btn btn-sm btn-outline">View All</a>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Reviewed By</th></tr>
+          </thead>
+          <tbody id="recentLeavesBody">
+            <tr><td colspan="6"><div class="loading-wrap"><div class="spinner"></div>Loading...</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/employee.js"></script>
+</body>
+</html>

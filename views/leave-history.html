@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Leave History · Leave Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> LeaveDesk</div>
+    <nav>
+      <div class="nav-section-label">Menu</div>
+      <a href="/employee-dashboard" class="nav-link"><span class="icon">🏠</span> Dashboard</a>
+      <a href="/apply-leave" class="nav-link"><span class="icon">📝</span> Apply for Leave</a>
+      <a href="/leave-history" class="nav-link active"><span class="icon">📋</span> Leave History</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar user-avatar">U</div>
+        <div class="meta">
+          <div class="name user-name">—</div>
+          <div class="role user-role">—</div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block btn-sm" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-toggle">☰</button>
+        <div>
+          <h1 class="page-title">Leave History</h1>
+          <div class="page-sub">All your past and current leave requests</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+        <a href="/apply-leave" class="btn btn-primary">+ Apply for Leave</a>
+      </div>
+    </div>
+
+    <div class="panel">
+      <div class="filters-bar">
+        <select id="filterStatus">
+          <option value="">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr><th>Type</th><th>Dates</th><th>Days</th><th>Reason</th><th>Status</th><th>Reviewed By</th><th>Action</th></tr>
+          </thead>
+          <tbody id="historyTableBody">
+            <tr><td colspan="7"><div class="loading-wrap"><div class="spinner"></div>Loading...</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/employee.js"></script>
+</body>
+</html>

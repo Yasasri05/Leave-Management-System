@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Admin Dashboard · Leave Management System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+<div class="app-shell">
+
+  <aside class="sidebar">
+    <div class="brand"><span class="dot"></span> LeaveDesk <span style="font-size:11px; opacity:.6; font-family:var(--font-mono); font-weight:500;">ADMIN</span></div>
+    <nav>
+      <div class="nav-section-label">Menu</div>
+      <a href="/admin-dashboard" class="nav-link active"><span class="icon">📊</span> Dashboard</a>
+      <a href="/admin-dashboard" class="nav-link" onclick="document.getElementById('leavesPanel').scrollIntoView({behavior:'smooth'}); return false;"><span class="icon">📋</span> All Leave Requests</a>
+    </nav>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="avatar user-avatar">A</div>
+        <div class="meta">
+          <div class="name user-name">—</div>
+          <div class="role user-role">—</div>
+        </div>
+      </div>
+      <button class="btn btn-outline btn-block btn-sm" id="logoutBtn">Logout</button>
+    </div>
+  </aside>
+
+  <main class="main-content">
+    <div class="topbar">
+      <div style="display:flex; align-items:center; gap:12px;">
+        <button class="menu-toggle">☰</button>
+        <div>
+          <h1 class="page-title">Admin Dashboard</h1>
+          <div class="page-sub">Manage and review all employee leave requests</div>
+        </div>
+      </div>
+      <div class="topbar-actions">
+        <button class="theme-toggle" title="Toggle dark mode">🌙</button>
+      </div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stat-card c-employees"><div class="stat-bar"></div><div class="stat-label">Total Employees</div><div class="stat-value" id="statEmployees">—</div></div>
+      <div class="stat-card c-total"><div class="stat-bar"></div><div class="stat-label">Total Leaves</div><div class="stat-value" id="statTotalLeaves">—</div></div>
+      <div class="stat-card c-approved"><div class="stat-bar"></div><div class="stat-label">Approved</div><div class="stat-value" id="statApproved">—</div></div>
+      <div class="stat-card c-rejected"><div class="stat-bar"></div><div class="stat-label">Rejected</div><div class="stat-value" id="statRejected">—</div></div>
+      <div class="stat-card c-pending"><div class="stat-bar"></div><div class="stat-label">Pending</div><div class="stat-value" id="statPending">—</div></div>
+    </div>
+
+    <div class="panel" id="leavesPanel">
+      <div class="panel-header">
+        <h3>All Leave Requests</h3>
+        <span class="helper-text" id="resultCount" style="margin:0;"></span>
+      </div>
+      <div class="filters-bar">
+        <input type="text" id="filterEmployee" placeholder="🔍 Search by employee name or ID..." style="min-width:220px;" />
+        <select id="filterType">
+          <option value="">All Leave Types</option>
+          <option value="Sick">Sick</option>
+          <option value="Casual">Casual</option>
+          <option value="Earned">Earned</option>
+          <option value="Maternity">Maternity</option>
+          <option value="Other">Other</option>
+        </select>
+        <select id="filterStatus">
+          <option value="">All Statuses</option>
+          <option value="Pending">Pending</option>
+          <option value="Approved">Approved</option>
+          <option value="Rejected">Rejected</option>
+        </select>
+        <input type="date" id="filterStartDate" title="From date" />
+        <input type="date" id="filterEndDate" title="To date" />
+        <button class="btn btn-sm btn-outline" id="resetFiltersBtn">Reset</button>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Employee</th><th>Type</th><th>Dates</th><th>Days</th>
+              <th>Reason</th><th>Status</th><th>Reviewed By</th><th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="leavesTableBody">
+            <tr><td colspan="8"><div class="loading-wrap"><div class="spinner"></div>Loading...</div></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </main>
+</div>
+
+<script src="/js/common.js"></script>
+<script src="/js/admin.js"></script>
+</body>
+</html>
